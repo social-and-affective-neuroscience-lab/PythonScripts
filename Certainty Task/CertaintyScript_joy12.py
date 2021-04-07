@@ -499,10 +499,10 @@ for thisVidTrial in VidTrials:
             innKeys.status = STARTED
         if guiltyKeys.status == NOT_STARTED:
             guiltyKeys.status = STARTED
-        if guiltyKeysCount == 0:
-            certaintyCountText.setText("--" + "% certain")
-            certaintyRatingsArray.append("-")
-            statusArray.append("-")
+        if guiltyKeysCount == 0 or y1 == 0:
+            certaintyCountText.setText("0" + "% certain")
+            certaintyRatingsArray.append("0")
+            statusArray.append("0")
 
         if joy.getY() > 0:
             y1 -= 0.003
