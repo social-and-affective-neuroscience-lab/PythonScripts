@@ -98,9 +98,9 @@ instructions3 = visual.TextStim(win=win, name='instruct',
     pos=(0, 0.3), height=0.05, wrapWidth=1.4, ori=0,
     color='white');
 
-saveTips = visual.TextStim(win=win, text='Saving Tips',pos=(0, -0.08), height=0.04,color='white')
-spendTips = visual.TextStim(win=win, text='Spending Tips',pos=(-0.5, -0.08), height=0.04,color='white')
-investTips = visual.TextStim(win=win, text='Investing Tips',pos=(0.5, -0.08), height=0.04,color='white')
+saveTips = visual.TextStim(win=win, text='Saving Tips',pos=(0, -0.08), height=0.05,color='white')
+spendTips = visual.TextStim(win=win, text='Spending Tips',pos=(-0.5, -0.08), height=0.05,color='white')
+investTips = visual.TextStim(win=win, text='Investing Tips',pos=(0.5, -0.08), height=0.05,color='white')
 
 spendImg = visual.ImageStim(win=win, image='spending.PNG', pos=(-0.5, -0.25), size=(0.38, 0.27),
     color=[1,1,1], texRes=128.0, interpolate=True)
