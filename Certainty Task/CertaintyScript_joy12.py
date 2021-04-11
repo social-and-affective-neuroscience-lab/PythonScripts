@@ -24,7 +24,7 @@ os.chdir(_thisDir)
 
 psychopyVersion = '2021.1.2'
 expName = 'Certainty Task-Joy'
-expInfo = {'Participant': ''}
+expInfo = {'Participant*': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()
@@ -44,7 +44,7 @@ logging.console.setLevel(logging.WARNING)
 
 endExpNow = False
 frameTolerance = 0.001
-#joystick.backend='pyglet' 
+#joystick.backend='pyglet'
 win = visual.Window(size=(1024, 768), fullscr=True, screen=0, winType='pyglet', allowGUI=True, allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',blendMode='avg', useFBO=True, units='height')
 win.winHandle.push_handlers(keyState)
@@ -53,11 +53,11 @@ if expInfo['frameRate'] != None:
     frameDur = 1.0 / round(expInfo['frameRate'])
 else:
     frameDur = 1.0 / 60.0
-nJoys = joystick.getNumJoysticks() 
+nJoys = joystick.getNumJoysticks()
 print("nJOys = ", nJoys)
 id = 0
 joy = joystick.Joystick(id)
-nAxes = joy.getNumAxes() 
+nAxes = joy.getNumAxes()
 
 defaultKeyboard = keyboard.Keyboard()
 
@@ -143,7 +143,7 @@ increment = [0, 0]
 certaintyRatingsArray = []
 #showListNames = ['Broadchurch', 'Fargo', 'The Outsider', 'The Night Of','The Undoing', 'Mindhunter']
 statusArray = []
-#create ISI func 
+#create ISI func
 def ISI_function(time):
     continueRoutine = True
     routineTimer.add(time)
@@ -465,7 +465,7 @@ for thisVidTrial in VidTrials:
     VidTrials.addData('RoleText', RoleText.text)
 
     ISI_function(2.00)
-    
+
     #begin routine Video
     continueRoutine = True
     VidClip = visual.MovieStim3(win=win, name='VidClip',units='height', noAudio = False,filename=VideoClip,ori=0.0, pos=(-0.155, -0.0155), opacity=1.0,loop=False,size=[1, .55])
@@ -569,7 +569,7 @@ for thisVidTrial in VidTrials:
             yArray.append(yStr)
             routineTimer1Str = str(routineTimer1)
             routineTimerList.append(routineTimer1Str)
-       
+
             #VidTrials.addData("y coord list", yArray)
             # keep track of start time/frame for later
 
@@ -647,7 +647,7 @@ for thisVidTrial in VidTrials:
     statusArray=[]
     yArray = []
     ISI_function(2.000)
-    
+
         #Ask role question
     continueRoutine = True
     _enter_allKeys = []
@@ -661,11 +661,11 @@ for thisVidTrial in VidTrials:
 
     while continueRoutine:
         t = trialClock.getTime()
-    
+
         if slider.status == NOT_STARTED:
             slider.tStart = t
             slider.setAutoDraw(True)
-        
+
         waitOnFlip = False
         if enter.status == NOT_STARTED:
             enter.status = STARTED
@@ -677,11 +677,11 @@ for thisVidTrial in VidTrials:
             if len(theseKeys) and slider.getRating() != None:
                 EnterEnd.rt = theseKeys[-1].rt
                 continueRoutine = False
-        
+
         if RoleQ.status == NOT_STARTED:
             RoleQ.setAutoDraw(True)
         if Det.status == NOT_STARTED:
-            Det.setAutoDraw(True)        
+            Det.setAutoDraw(True)
         if friendVic.status == NOT_STARTED:
             friendVic.setAutoDraw(True)
         if friendAcc.status == NOT_STARTED:
@@ -690,7 +690,7 @@ for thisVidTrial in VidTrials:
             qInst.setAutoDraw(True)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
-        
+
         if not continueRoutine:
             break
         continueRoutine = False
@@ -698,7 +698,7 @@ for thisVidTrial in VidTrials:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break
-        
+
         if continueRoutine:
             win.flip()
 
