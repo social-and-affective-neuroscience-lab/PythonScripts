@@ -182,7 +182,7 @@ print("Counter Code: " + counterCode )
 endText = visual.TextStim(win=win, text='', pos=(0,0), height=0.046, wrapWidth = 1.4, color='white')
 endText1 = visual.TextStim(win=win, text='Thank you for participating, you have completed this part of the study!\n\nPlease press ENTER to submit your work and continue with the rest of the study.', pos=(0,0), height=0.001, color='white')
 
-bucket = ["a","b","c","d","e", "f", "g", "h", "i","j","k","l", "m","n","o","p","u","v","w", "x"]
+bucket = ["a","b","c","d","e", "f", "g", "h", "i","j","k","l", "m","n","o","p","q","r","s", "t"]
 
 
 selectedTips=[]
@@ -1222,7 +1222,7 @@ def getRandomFromBucket():
     if randomIndex == "m" or randomIndex == "n" or randomIndex == "o" or randomIndex == "p":
         regCue.setText(friendWordStr)
 
-    if randomIndex == "u" or randomIndex == "v" or randomIndex == "w" or randomIndex == "w" :
+    if randomIndex == "q" or randomIndex == "r" or randomIndex == "s" or randomIndex == "t" :
         regCue.setText("Choice")
 
     bucket.remove(randomIndex)
