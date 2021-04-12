@@ -62,7 +62,7 @@ nAxes = joy.getNumAxes()
 defaultKeyboard = keyboard.Keyboard()
 
 # Initialize variables
-stimuli = csv.reader(open("Stimuli1.csv", encoding="cp437", errors='ignore'))
+stimuli = csv.reader(open("Stimuli9.csv", encoding="cp437", errors='ignore'))
 
 Instructions1Clock = core.Clock()
 ITIClock = core.Clock()
@@ -271,7 +271,7 @@ ISI_function(5.00)
 # Create Loop for background info + role + video + questions
 VidTrials = data.TrialHandler(nReps=1.0, method='random',
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('Stimuli1.csv'),
+    trialList=data.importConditions('Stimuli9.csv'),
     seed=None, name='VidTrials')
 thisExp.addLoop(VidTrials)
 thisVidTrial = VidTrials.trialList[0]
