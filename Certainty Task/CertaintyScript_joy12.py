@@ -141,7 +141,6 @@ cueList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 #myCount = 0
 increment = [0, 0]
 certaintyRatingsArray = []
-#showListNames = ['Broadchurch', 'Fargo', 'The Outsider', 'The Night Of','The Undoing', 'Mindhunter']
 statusArray = []
 #create ISI func
 def ISI_function(time):
