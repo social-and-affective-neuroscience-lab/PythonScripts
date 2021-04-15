@@ -295,7 +295,7 @@ for thisVidTrial in VidTrials:
 #    showVar = Show
     print("show var  = ", showVar)
 #    showListNames.remove(showVar)
-
+# do not mess up this script
     Space2.keys = []
     Space2.rt = []
     _Space2_allKeys = []
