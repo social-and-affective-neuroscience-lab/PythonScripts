@@ -285,7 +285,7 @@ for thisVidTrial in VidTrials:
         for paramName in thisVidTrial:
             exec('{} = thisVidTrial[paramName]'.format(paramName))
 
-    # begin routine BackgroundInfo
+    # begin routine BackgroundInfo - where pt learn about the characters
     continueRoutine = True
     showVar = Show
 #    print("show var  = ", showVar)
