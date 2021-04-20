@@ -41,7 +41,7 @@ thisExp = data.ExperimentHandler(name=expName, version='',
     dataFileName=filename)
 logFile = logging.LogFile(filename+'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)
-
+#more demo comments
 endExpNow = False
 frameTolerance = 0.001
 #joystick.backend='pyglet'
@@ -54,7 +54,7 @@ if expInfo['frameRate'] != None:
 else:
     frameDur = 1.0 / 60.0
 nJoys = joystick.getNumJoysticks()
-print("nJOys = ", nJoys)
+print("nJoys = ", nJoys)
 id = 0
 joy = joystick.Joystick(id)
 nAxes = joy.getNumAxes()
