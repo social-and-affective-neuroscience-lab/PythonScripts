@@ -118,7 +118,7 @@ instructions4 = visual.TextStim(win=win,
     text='When making your decisions, you will be cued with specific names and words. On the following screens, you will be instructed to type out the names of two different, independent people in your life.\n\nPress SPACE to continue.',
     pos=(0, 0), height=0.05, wrapWidth=1.4, color='white');
 instructions5 = visual.TextStim(win=win,
-    text="You will be completing 24 blocks of decisions, with each block consisting of 5 decisions.\n\nDuring each block of decisions, you will either see one of the names you typed, the word 'High', the word 'Low', or the word 'Choice' in the center of the screen. \n\nPress SPACE to continue.",
+    text="You will be completing 24 blocks of decisions, with each block consisting of 5 decisions.\n\nDuring each block of decisions, you will either see one of the names you typed, the word 'High', the word 'Low', the word 'Unknown', or the word 'Choice' in the center of the screen. \n\nPress SPACE to continue.",
     pos=(0, 0), height=0.05, wrapWidth=1.4, color='white');
 
 inst5A = visual.TextStim(win=win, text='',pos=(0, 0.016), height=0.05, wrapWidth=1.4, color='white')
