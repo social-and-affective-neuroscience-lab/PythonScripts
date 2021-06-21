@@ -82,12 +82,12 @@ routineTimerListGreen = []
 Intro = visual.TextStim(win=win, text='', pos=[0,0], height=0.045, wrapWidth=1.4,color='white');
 ITI_sign = visual.TextStim(win=win, text='+',pos=(0, 0), height=0.09, color='white');
 ISI_sign = visual.TextStim(win=win, text='+', pos=(0, 0), height=0.09, color='white');
-RoleText = visual.TextStim(win=win, text='',pos=(0, 0), height=0.08, wrapWidth=1.5, color='white');
+RoleText = visual.TextStim(win=win, text='',pos=(0, 0.04), height=0.08, wrapWidth=1.3, color='white');
 BackgroundText = visual.TextStim(win=win, text='', pos=(0, -0.31), height=0.045, wrapWidth=1.5, color='white');
 BackgroundSpace = visual.TextStim(win=win, text="When you're ready to move on, press SPACE.", pos=(0, -0.455), height=0.03, wrapWidth=1.6, color='white');
 Inn_Anchor = visual.TextStim(win=win, text='Innocent', pos=(0.53, 0.35),height=0.04,color='white');
 Guilty_Anchor = visual.TextStim(win=win,text='Guilty',pos=(0.53, -0.345), height=0.04, color='white');
-RoleVidText = visual.TextStim(win=win, text='', pos=(-0.17, 0.35), height=0.052, wrapWidth=1.6, color='white');
+RoleVidText = visual.TextStim(win=win, text='', pos=(-0.17, 0.37), height=0.05, wrapWidth=1.0, color='white');
 AccusedNm = visual.TextStim(win=win, text='',pos=(0.05, -0.05), height=0.05, color='white');
 VictimNm = visual.TextStim(win=win, text='',pos=(0.05, 0.29), height=0.05, color='white');
 certaintyCountText = visual.TextStim(win=win, text='', pos=[0.535,-0.43], height=0.04, wrapWidth=1.55,color='white');
@@ -409,17 +409,17 @@ for thisVidTrial in VidTrials:
     ISI_function(2.000)
     # begin routine RoleCue
     continueRoutine = True
-    routineTimer.add(4.000000)
+    routineTimer.add(5.000000)
     randCue = random.choice(cueList)
     print("randCue = ", randCue)
     if randCue == 1 or randCue == 4 or randCue == 7 or randCue == 10:
-        roleCueText = "detective"
+        roleCueText = "detective and will be called to testify"
         print("roleCue = ", roleCueText)
     if randCue == 2 or randCue == 5 or randCue ==8 or randCue ==11:
-        roleCueText = "friend of the accused"
+        roleCueText = "friend of the accused and will be called to testify in support of the accused"
         print("roleCue = ", roleCueText)
     if randCue == 3 or randCue == 6 or randCue == 9 or randCue == 12:
-        roleCueText = "friend of the victim"
+        roleCueText = "friend of the victim and will be called to testify in support of the victim"
         print("roleCue = ", roleCueText)
 
     roleCueText=str(roleCueText)
@@ -446,7 +446,7 @@ for thisVidTrial in VidTrials:
             RoleText.tStart = t
             RoleText.setAutoDraw(True)
         if RoleText.status == STARTED:
-            if t> 4.0:
+            if t> 5.0:
                 RoleText.tStop = t
                 RoleText.setAutoDraw(False)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
