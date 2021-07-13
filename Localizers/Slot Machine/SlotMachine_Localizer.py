@@ -226,13 +226,13 @@ def earningsFunct(gamProb, chosenMoney, WinLossType, earning):
 enter = keyboard.Keyboard()
 inst3Clock = core.Clock()
 text_4 = visual.TextStim(win=win,
-    text='You will have three seconds to make your choice upon seeing the options. \n\nTo choose the option on the left, press "1". To choose the option on the right, press "2".\n\nYou will first be playing some practice rounds. To begin the practice, press ENTER!',
+    text='You will have four seconds to make your choice upon seeing the options. \n\nTo choose the option on the left, press "1". To choose the option on the right, press "2".\n\nYou will first be playing some practice rounds. To begin the practice, press ENTER!',
     font='Arial', pos=(0, 0), height=0.045, wrapWidth=1.4, color='white');
 key_resp_2 = keyboard.Keyboard()
-isiClock = core.Clock()
+ISIClock = core.Clock()
 PracticeCueClock = core.Clock()
 text = visual.TextStim(win=win,text='EMPHASIZE',font='Arial', pos=(0, 0), height=0.12,color='white', depth=0.0);
-isi2 = visual.TextStim(win=win, text='',font='Arial', pos=(0, 0), height=0.1, color='white');
+isi_text = visual.TextStim(win=win, text='+',font='Arial', pos=(0, 0), height=0.13, color='white');
 
 PracticeClock = core.Clock()
 Line = visual.Line(win=win, name='Line',
@@ -255,7 +255,7 @@ text_3 = visual.TextStim(win=win, text='', font='Arial', pos=(0, 0), height=0.09
 
 BeginInstClock = core.Clock()
 text_2 = visual.TextStim(win=win,
-    text='You will now be completing the full task. Your money bank will begin with the $6.00 you earned from the card task\n\nPress SPACE to start!',
+    text='You will now be completing the full task. Your money bank will begin with the $4.00 you earned from the card task\n\nPress SPACE to start!',
     font='Arial', pos=(0, 0), height=0.085, wrapWidth=1.4, ori=0,color='white');
 key_resp = keyboard.Keyboard()
 
@@ -286,7 +286,7 @@ routineTimer = core.CountdownTimer()
 continueRoutine = True
 Instructions.setColor('white', colorSpace='rgb')
 Instructions.setPos((0, 0))
-Instructions.setText('In this part of the study, you will be making a series of monetary decisions.\n\nYou will have the choice between taking a gamble or choosing a sure option. For each gamble, you will have a chance of either winning money, losing money, or gaining nothing, while the sure option guarantees a win or loss. \n\nYou will be given regulation instructions prior to a block of trials. Please employ the strategy while making your decision. \n\nPress SPACE to continue. ')
+Instructions.setText('In this part of the study, you will be making a series of monetary decisions.\n\nYou will have the choice between taking a gamble or choosing a sure option. For each gamble, you will have a chance of either winning money, losing money, or gaining nothing, while the sure option guarantees a win or loss. \n\nPress SPACE to continue. ')
 Instructions.setFont('Arial')
 Instructions.setHeight(0.045)
 space.keys = []
@@ -304,6 +304,57 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 InstrClock.reset(-_timeToFirstFrame)
 frameN = -1
+
+def isiFunc(time):
+    continueRoutine = True
+    routineTimer.add(time)
+    isi_text.setText('+')
+    ISIComponents = [isi_text]
+    for thisComponent in ISIComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    ISIClock.reset(-_timeToFirstFrame)
+    frameN = -1
+    while continueRoutine and routineTimer.getTime() > 0:
+        t = ISIClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=ISIClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1
+
+        if isi_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            isi_text.frameNStart = frameN
+            isi_text.tStart = t
+            isi_text.tStartRefresh = tThisFlipGlobal
+            win.timeOnFlip(isi_text, 'tStartRefresh')
+            isi_text.setAutoDraw(True)
+        if isi_text.status == STARTED:
+            if tThisFlipGlobal > isi_text.tStartRefresh + time-frameTolerance:
+                isi_text.tStop = t
+                isi_text.frameNStop = frameN
+                win.timeOnFlip(isi_text, 'tStopRefresh')
+                isi_text.setAutoDraw(False)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        if not continueRoutine:
+            break
+        continueRoutine = False
+        for thisComponent in ISIComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break
+        if continueRoutine:
+            win.flip()
+    for thisComponent in ISIComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('isi_text.started', isi_text.tStartRefresh)
+    thisExp.addData('isi_text.stopped', isi_text.tStopRefresh)
 
 #every frame instr
 while continueRoutine:
@@ -445,63 +496,11 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # begin isi
-continueRoutine = True
-routineTimer.add(2.000000)
-isi2.setText('+')
-isiComponents = [isi2]
-for thisComponent in isiComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-isiClock.reset(-_timeToFirstFrame)
-frameN = -1
-
-#every frame isi
-while continueRoutine and routineTimer.getTime() > 0:
-    t = isiClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=isiClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1
-    if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        isi2.frameNStart = frameN
-        isi2.tStart = t
-        isi2.tStartRefresh = tThisFlipGlobal
-        win.timeOnFlip(isi2, 'tStartRefresh')
-        isi2.setAutoDraw(True)
-    if isi2.status == STARTED:
-        if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-            isi2.tStop = t
-            isi2.frameNStop = frameN
-            win.timeOnFlip(isi2, 'tStopRefresh')
-            isi2.setAutoDraw(False)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    if not continueRoutine:
-        break
-    continueRoutine = False
-    for thisComponent in isiComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break
-    if continueRoutine:
-        win.flip()
-
-# end isi
-for thisComponent in isiComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-thisExp.addData('isi2.started', isi2.tStartRefresh)
-thisExp.addData('isi2.stopped', isi2.tStopRefresh)
-
+isiFunc(2.000)
 
 PracticeLoop = data.TrialHandler(nReps=1, method='sequential',
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('PracticeSlotMach.xlsx', selection='0:3'),
+    trialList=data.importConditions('PracticeSlotMach_Localizer.xlsx', selection='0:3'),
     seed=None, name='PracticeLoop')
 thisExp.addLoop(PracticeLoop)
 thisPracticeLoop = PracticeLoop.trialList[0]
@@ -516,59 +515,8 @@ for thisPracticeLoop in PracticeLoop:
             exec('{} = thisPracticeLoop[paramName]'.format(paramName))
 
     #begin isi
-    continueRoutine = True
-    routineTimer.add(2.000000)
-    isi2.setText('+')
-    isiComponents = [isi2]
-    for thisComponent in isiComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    isiClock.reset(-_timeToFirstFrame)
-    frameN = -1
-
-    # isi
-    while continueRoutine and routineTimer.getTime() > 0:
-        t = isiClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=isiClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1
-        if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            isi2.frameNStart = frameN
-            isi2.tStart = t
-            isi2.tStartRefresh = tThisFlipGlobal
-            win.timeOnFlip(isi2, 'tStartRefresh')
-            isi2.setAutoDraw(True)
-        if isi2.status == STARTED:
-            if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-                isi2.tStop = t
-                isi2.frameNStop = frameN
-                win.timeOnFlip(isi2, 'tStopRefresh')
-                isi2.setAutoDraw(False)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        if not continueRoutine:
-            break
-        continueRoutine = False
-        for thisComponent in isiComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break
-        if continueRoutine:
-            win.flip()
-
-    #end isi
-    for thisComponent in isiComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    PracticeLoop.addData('isi2.started', isi2.tStartRefresh)
-    PracticeLoop.addData('isi2.stopped', isi2.tStopRefresh)
-
+    isiFunc(2.000)
+    
     # begin Practice
     continueRoutine = True
     Line.setFillColor([-1.000,-1.000,-1.000])
@@ -981,61 +929,8 @@ for thisPracticeLoop in PracticeLoop:
     routineTimer.reset()
 
     #begin isi
-    continueRoutine = True
-    routineTimer.add(2.000000)
-    isi2.setText('+')
-    isiComponents = [isi2]
-    for thisComponent in isiComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    isiClock.reset(-_timeToFirstFrame)
-    frameN = -1
-
-    # every frame isi
-    while continueRoutine and routineTimer.getTime() > 0:
-        t = isiClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=isiClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1 
-        if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            isi2.frameNStart = frameN
-            isi2.tStart = t
-            isi2.tStartRefresh = tThisFlipGlobal
-            win.timeOnFlip(isi2, 'tStartRefresh')
-            isi2.setAutoDraw(True)
-        if isi2.status == STARTED:
-            if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-                isi2.tStop = t
-                isi2.frameNStop = frameN
-                win.timeOnFlip(isi2, 'tStopRefresh')
-                isi2.setAutoDraw(False)
-
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-
-        if not continueRoutine: 
-            break
-        continueRoutine = False
-        for thisComponent in isiComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break
-
-        if continueRoutine:
-            win.flip()
-
-    for thisComponent in isiComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    PracticeLoop.addData('isi2.started', isi2.tStartRefresh)
-    PracticeLoop.addData('isi2.stopped', isi2.tStopRefresh)
-
+    isiFunc(2.000)
+    
 #begin feedback
     continueRoutine = True
     routineTimer.add(2.500000)
@@ -1142,7 +1037,6 @@ while continueRoutine:
     frameN = frameN + 1 
 
     if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-
         text_2.frameNStart = frameN
         text_2.tStart = t
         text_2.tStartRefresh = tThisFlipGlobal
@@ -1187,8 +1081,8 @@ for thisComponent in BeginInstComponents:
         thisComponent.setAutoDraw(False)
 thisExp.addData('text_2.started', text_2.tStartRefresh)
 thisExp.addData('text_2.stopped', text_2.tStopRefresh)
-earnings = 6
-earning = 6
+earnings = 4
+earning = 4
 earningsStr = "$" + '%.2f' % earnings
 earningsText.setText('$' + earningsStr)
 if key_resp.keys in ['', [], None]:
@@ -1203,7 +1097,7 @@ routineTimer.reset()
 
 mainLoop = data.TrialHandler(nReps=1, method='sequential',
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('PracticeSlotMach.xlsx'),
+    trialList=data.importConditions('PracticeSlotMach_Localizer.xlsx'),
     seed=None, name='mainLoop')
 thisExp.addLoop(mainLoop)
 thisMainLoop = mainLoop.trialList[0]
@@ -1218,63 +1112,10 @@ for thisMainLoop in mainLoop:
             exec('{} = thisMainLoop[paramName]'.format(paramName))
 
     # begin isi
-    continueRoutine = True
-    routineTimer.add(2.000000)
-    isi2.setText('+')
-    isiComponents = [isi2]
-    for thisComponent in isiComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    isiClock.reset(-_timeToFirstFrame)
-    frameN = -1
-
-    #every frame isi
-    while continueRoutine and routineTimer.getTime() > 0:
-        t = isiClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=isiClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1
-        if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            isi2.frameNStart = frameN
-            isi2.tStart = t
-            isi2.tStartRefresh = tThisFlipGlobal
-            win.timeOnFlip(isi2, 'tStartRefresh')
-            isi2.setAutoDraw(True)
-        if isi2.status == STARTED:
-            if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-                isi2.tStop = t
-                isi2.frameNStop = frameN
-                win.timeOnFlip(isi2, 'tStopRefresh')
-                isi2.setAutoDraw(False)
-
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-
-        if not continueRoutine:
-            break
-        continueRoutine = False
-        for thisComponent in isiComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break
-
-        if continueRoutine:
-            win.flip()
-
-    for thisComponent in isiComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    mainLoop.addData('isi2.started', isi2.tStartRefresh)
-    mainLoop.addData('isi2.stopped', isi2.tStopRefresh)
-
-    earning = 5
-    earnings = 5
+    isiFunc(2.000)
+    
+    earning = 4
+    earnings = 4
 
     trials = data.TrialHandler(nReps=1, method='random',
         extraInfo=expInfo, originPath=-1,
@@ -1293,61 +1134,7 @@ for thisMainLoop in mainLoop:
                 exec('{} = thisTrial[paramName]'.format(paramName))
 
         #begin isi
-        continueRoutine = True
-        routineTimer.add(2.000000)
-        isi2.setText('+')
-        isiComponents = [isi2]
-        for thisComponent in isiComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        isiClock.reset(-_timeToFirstFrame)
-        frameN = -1
-
-        #every frame isi
-        while continueRoutine and routineTimer.getTime() > 0:
-            t = isiClock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=isiClock)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1
-            if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                isi2.frameNStart = frameN
-                isi2.tStart = t
-                isi2.tStartRefresh = tThisFlipGlobal
-                win.timeOnFlip(isi2, 'tStartRefresh')
-                isi2.setAutoDraw(True)
-            if isi2.status == STARTED:
-                if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-                    isi2.tStop = t
-                    isi2.frameNStop = frameN
-                    win.timeOnFlip(isi2, 'tStopRefresh')
-                    isi2.setAutoDraw(False)
-
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-
-            if not continueRoutine:
-                break
-            continueRoutine = False
-            for thisComponent in isiComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break
-
-            if continueRoutine:
-                win.flip()
-
-        #end isi
-        for thisComponent in isiComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        trials.addData('isi2.started', isi2.tStartRefresh)
-        trials.addData('isi2.stopped', isi2.tStopRefresh)
+        isiFunc(2.0000)
 
         #begin routine Practice
         continueRoutine = True
@@ -1593,17 +1380,15 @@ for thisMainLoop in mainLoop:
             if continueRoutine:
                 win.flip()
 
-        #end routine Practice
         for thisComponent in PracticeComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         trials.addData('Line.started', Line.tStartRefresh)
         trials.addData('Line.stopped', Line.tStopRefresh)
-        # check responses
-        if choice.keys in ['', [], None]:  # No response was made
+        if choice.keys in ['', [], None]: 
             choice.keys = None
         trials.addData('choice.keys',choice.keys)
-        if choice.keys != None:  # we had a response
+        if choice.keys != None: 
             trials.addData('choice.rt', choice.rt)
         trials.addData('choice.started', choice.tStartRefresh)
         trials.addData('choice.stopped', choice.tStopRefresh)
@@ -1770,64 +1555,8 @@ for thisMainLoop in mainLoop:
         trials.addData('earningsText.stopped', earningsText.tStopRefresh)
 
         #begin isi
-        continueRoutine = True
-        routineTimer.add(2.000000)
-        isi2.setText('+')
-        isiComponents = [isi2]
-        for thisComponent in isiComponents:
-            thisComponent.tStart = None
-            thisComponent.tStop = None
-            thisComponent.tStartRefresh = None
-            thisComponent.tStopRefresh = None
-            if hasattr(thisComponent, 'status'):
-                thisComponent.status = NOT_STARTED
-        t = 0
-        _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-        isiClock.reset(-_timeToFirstFrame)
-        frameN = -1
-
-        # every frame isi
-        while continueRoutine and routineTimer.getTime() > 0:
-            t = isiClock.getTime()
-            tThisFlip = win.getFutureFlipTime(clock=isiClock)
-            tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-            frameN = frameN + 1
-
-            if isi2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                isi2.frameNStart = frameN
-                isi2.tStart = t
-                isi2.tStartRefresh = tThisFlipGlobal
-                win.timeOnFlip(isi2, 'tStartRefresh')
-                isi2.setAutoDraw(True)
-            if isi2.status == STARTED:
-                if tThisFlipGlobal > isi2.tStartRefresh + 2-frameTolerance:
-                    isi2.tStop = t
-                    isi2.frameNStop = frameN
-                    win.timeOnFlip(isi2, 'tStopRefresh')
-                    isi2.setAutoDraw(False)
-
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-
-            if not continueRoutine:
-                break
-            continueRoutine = False
-            for thisComponent in isiComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break
-
-
-            if continueRoutine:
-                win.flip()
-
-        #end isi
-        for thisComponent in isiComponents:
-            if hasattr(thisComponent, "setAutoDraw"):
-                thisComponent.setAutoDraw(False)
-        trials.addData('isi2.started', isi2.tStartRefresh)
-        trials.addData('isi2.stopped', isi2.tStopRefresh)
-
+        isiFunc(2.000)
+        
         # begin routine Feedback
         continueRoutine = True
         routineTimer.add(2.500000)
@@ -1861,7 +1590,6 @@ for thisMainLoop in mainLoop:
         FeedbackClock.reset(-_timeToFirstFrame)
         frameN = -1
 
-        #every frame Feedback
         while continueRoutine and routineTimer.getTime() > 0:
             t = FeedbackClock.getTime()
             tThisFlip = win.getFutureFlipTime(clock=FeedbackClock)
@@ -1904,13 +1632,13 @@ for thisMainLoop in mainLoop:
 
     thisExp.nextEntry()
 
-
+isiFunc(15.00)
 
 # begin Routine ThankYou
 continueRoutine = True
 
-if earnings < 0:
-    earningsStr = "$" + 0.00
+if earnings <= 0.00:
+    earningsStr = "$0.00"
 tyText.setText("Thank you for playing!\n\nYour total earnings are " + earningsStr)
 ThankYouComponents = [tyText]
 for thisComponent in ThankYouComponents:
