@@ -356,14 +356,14 @@ for i in textArray:
 
 text1= 'The first video will begin momentarily....'
 text2= 'The next video will begin momentarily...'
-text3 = 'The next video will begin momentarily...'
-text4= 'The next video will begin momentarily....'
-text5= 'The next video will begin momentarily...'
-text6 = 'The next video will begin momentarily...'
-text7= 'The next video will begin momentarily....'
-text8= 'The next video will begin momentarily...'
-text9 = 'The last video will begin momentarily...'
-textArray = [text1, text2, text3, text4, text5, text6, text7, text8, text9]
+text3 = 'The last video will begin momentarily...' #Billy if ur reading this I just edited this part
+# text4= 'The next video will begin momentarily....'
+# text5= 'The next video will begin momentarily...'
+# text6 = 'The next video will begin momentarily...'
+# text7= 'The next video will begin momentarily....'
+# text8= 'The next video will begin momentarily...'
+# text9 = 'The last video will begin momentarily...'
+textArray = [text1, text2, text3]
 triggerKey = keyboard.Keyboard()
 def trialInstFunc(text):
     continueRoutine = True
